@@ -1,4 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Navbar } from '../components/Navbar';
+import { Hero } from '../components/Hero';
+import { QuickAccess } from '../components/QuickAccess';
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
@@ -6,9 +9,11 @@ export const Route = createFileRoute('/')({
 
 function RouteComponent() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline" > Home xd</h1>
-    </>
+    <main>
+      <Navbar />
+      <Hero />
+      <QuickAccess />
+    </main>
   );
 }
 
