@@ -7,7 +7,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <img
-            src="/umss.jpg"
+            src="/umss.png"
             alt="UMSS"
             className="w-12 h-12 object-contain"
           />
