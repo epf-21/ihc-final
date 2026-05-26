@@ -3,29 +3,25 @@ const items = [
     title: 'Moodle',
     description: 'Acceso a plataforma virtual',
     route: 'https://moodle.fce.umss.edu.bo/login/index.php',
-    color: 'bg-blue-100',
-    icon: '📚',
+    image: '/moodlee.png',
   },
   {
     title: 'SACAD',
     description: 'Sistema académico',
     route: 'https://sacad.fce.umss.edu.bo/admision/noticias.php',
-    color: 'bg-emerald-100',
-    icon: '📝',
+    image: '/sacad.png',
   },
   {
     title: 'WebSISS',
     description: 'Información universitaria',
     route: 'https://websis.umss.edu.bo/serv_estudiantes.asp',
-    color: 'bg-orange-100',
-    icon: '🎓',
+    image: '/websis.png',
   },
   {
     title: 'IESE',
     description: 'Página del IESE',
     route: 'https://iese.umss.edu.bo/',
-    color: 'bg-purple-100',
-    icon: '🏛️',
+    image: '/iese.png',
   },
 ]
 
@@ -35,6 +31,7 @@ export function QuickAccess() {
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="mb-12">
+
           <p className="text-primary font-semibold mb-3 uppercase tracking-[3px]">
             Plataformas institucionales
           </p>
@@ -47,6 +44,7 @@ export function QuickAccess() {
             Accede rápidamente a las principales plataformas académicas y administrativas
             utilizadas por estudiantes de la Facultad de Ciencias Económicas.
           </p>
+
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -74,19 +72,31 @@ export function QuickAccess() {
             >
 
               <div
-                className={`
-                  w-16
-                  h-16
+                className="
+                  w-20
+                  h-20
                   rounded-2xl
                   flex
                   items-center
                   justify-center
-                  text-3xl
                   mb-6
-                  ${item.color}
-                `}
+                  p-3
+                "
               >
-                {item.icon}
+
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="
+                    w-full
+                    h-full
+                    object-contain
+                    transition-transform
+                    duration-300
+                    group-hover:scale-110
+                  "
+                />
+
               </div>
 
               <div className="space-y-3">
@@ -105,15 +115,6 @@ export function QuickAccess() {
                     {item.title}
                   </h3>
 
-                  <span
-                    className="
-                      text-gray-400
-                      group-hover:translate-x-1
-                      transition-transform
-                    "
-                  >
-                    →
-                  </span>
                 </div>
 
                 <p className="text-gray-600 leading-relaxed">
@@ -126,6 +127,7 @@ export function QuickAccess() {
           ))}
 
         </div>
+
       </div>
     </section>
   )

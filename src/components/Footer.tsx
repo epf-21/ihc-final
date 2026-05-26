@@ -172,11 +172,6 @@ export function Footer() {
           <p className="text-sm text-gray-500">
             © 2026 Facultad de Ciencias Económicas - UMSS
           </p>
-
-          <p className="text-sm text-gray-500">
-            Rediseño UX/UI académico • Proyecto IHC
-          </p>
-
         </div>
 
       </div>
