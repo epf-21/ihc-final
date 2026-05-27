@@ -2,37 +2,33 @@ import { Link } from "@tanstack/react-router";
 
 export function Hero() {
   return (
-    <section className="relative h-137.5">
+    <section className="relative overflow-hidden bg-slate-950">
       <img
         src="/fce.png"
         alt="FCE"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover opacity-35"
       />
 
-      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-background to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6">
-        <div className="max-w-2xl text-white">
-          <p className="uppercase tracking-[4px] mb-4 text-blue-200">
-            FCE • UMSS
-          </p>
+      <div className="relative z-10 mx-auto flex min-h-[82vh] max-w-7xl items-center px-6 py-16">
+        <div className="max-w-3xl text-white">
 
-          <h1 className="text-5xl font-bold leading-tight mb-6">
-            Plataforma académica moderna para estudiantes
+          <h1 className="mb-6 text-5xl font-bold leading-tight md:text-6xl">
+            FCE | UMSS
           </h1>
 
-          <p className="text-lg text-gray-200 mb-8">
-            Accede rápidamente a comunicados, plataformas, trámites y recursos académicos.
-          </p>
-
-          <div className="flex gap-4">
-            <button className="bg-[#0B4F8A] hover:bg-[#083b67] px-6 py-3 rounded-xl font-medium">
-              Explorar
-            </button>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Link
+              to="/plataformas"
+              className="rounded-xl bg-primary px-6 py-3 font-medium text-white transition hover:bg-blue-950"
+            >
+              Explorar plataforma
+            </Link>
 
             <Link
               to="/comunicados"
-              className="bg-white text-black px-6 py-3 rounded-xl font-medium">
+              className="rounded-xl border border-white/20 bg-white px-6 py-3 font-medium text-slate-900 transition hover:bg-slate-100">
               Comunicados
             </Link>
           </div>

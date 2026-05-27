@@ -1,18 +1,27 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createFileRoute } from '@tanstack/react-router'
 import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
 
 const news = [
   {
-    title: 'Convocatoria auxiliares 2026',
-    category: 'Convocatorias',
-    date: '12 mayo 2026',
+    title: 'Comunicado 18/2026',
+    category: 'Académico',
+    date: '26 mayo 2026',
   },
   {
-    title: 'Calendario académico actualizado',
-    category: 'Académico',
-    date: '10 mayo 2026',
+    title: 'Convocatoria interna para Coordinador Académico',
+    category: 'Convocatorias',
+    date: '25 mayo 2026',
+  },
+  {
+    title: 'Resultados de auxiliares de docencia',
+    category: 'Resultados',
+    date: '24 mayo 2026',
   },
 ]
+
+const categories = ['Todos', 'Académico', 'Convocatorias', 'Resultados', 'Trámites']
 
 export const Route = createFileRoute('/comunicados')({
   component: RouteComponent,
@@ -20,37 +29,52 @@ export const Route = createFileRoute('/comunicados')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-[#F5F7FA]">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="max-w-7xl mx-auto px-6 py-14">
-        <h1 className="text-4xl font-bold mb-10">
-          Comunicados
-        </h1>
+      <section className="mx-auto max-w-7xl px-6 py-14">
+        <div className="mb-8 flex flex-wrap gap-3">
+          {categories.map((category, index) => (
+            <button
+              key={category}
+              type="button"
+              className={index === 0 ? 'rounded-full bg-primary px-4 py-2 text-sm font-medium text-white' : 'rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700'}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
-        <div className="space-y-6">
+        <div className="grid gap-6">
           {news.map((item) => (
             <article
               key={item.title}
-              className="bg-white p-6 rounded-2xl shadow-sm"
+              className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full">
+              <div className="mb-4 flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700">
                   {item.category}
                 </span>
 
-                <span className="text-sm text-gray-500">
+
+                <span className="text-sm text-slate-500">
                   {item.date}
                 </span>
               </div>
 
-              <h2 className="text-2xl font-semibold">
+              <h2 className="text-2xl font-semibold text-slate-900">
                 {item.title}
               </h2>
+
+              <p className="mt-3 max-w-3xl leading-relaxed text-slate-600">
+                Resumen breve del comunicado para mejorar la escaneabilidad y evitar que el usuario tenga que abrir un PDF si todavía no lo necesita.
+              </p>
             </article>
           ))}
         </div>
       </section>
+
+      <Footer />
     </main>
   )
 }

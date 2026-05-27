@@ -1,10 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 const RootLayout = () => (
   <>
     <Outlet />
-    <TanStackRouterDevtools />
   </>
 )
 

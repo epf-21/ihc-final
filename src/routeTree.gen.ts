@@ -9,12 +9,43 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TramitesRouteImport } from './routes/tramites'
+import { Route as PlataformasRouteImport } from './routes/plataformas'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ComunicadosRouteImport } from './routes/comunicados'
+import { Route as CarrerasRouteImport } from './routes/carreras'
+import { Route as BibliotecaRouteImport } from './routes/biblioteca'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarrerasCareerRouteImport } from './routes/carreras.$career'
 
+const TramitesRoute = TramitesRouteImport.update({
+  id: '/tramites',
+  path: '/tramites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlataformasRoute = PlataformasRouteImport.update({
+  id: '/plataformas',
+  path: '/plataformas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComunicadosRoute = ComunicadosRouteImport.update({
   id: '/comunicados',
   path: '/comunicados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarrerasRoute = CarrerasRouteImport.update({
+  id: '/carreras',
+  path: '/carreras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BibliotecaRoute = BibliotecaRouteImport.update({
+  id: '/biblioteca',
+  path: '/biblioteca',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +53,128 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CarrerasCareerRoute = CarrerasCareerRouteImport.update({
+  id: '/$career',
+  path: '/$career',
+  getParentRoute: () => CarrerasRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/biblioteca': typeof BibliotecaRoute
+  '/carreras': typeof CarrerasRouteWithChildren
   '/comunicados': typeof ComunicadosRoute
+  '/contacto': typeof ContactoRoute
+  '/plataformas': typeof PlataformasRoute
+  '/tramites': typeof TramitesRoute
+  '/carreras/$career': typeof CarrerasCareerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/biblioteca': typeof BibliotecaRoute
+  '/carreras': typeof CarrerasRouteWithChildren
   '/comunicados': typeof ComunicadosRoute
+  '/contacto': typeof ContactoRoute
+  '/plataformas': typeof PlataformasRoute
+  '/tramites': typeof TramitesRoute
+  '/carreras/$career': typeof CarrerasCareerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/biblioteca': typeof BibliotecaRoute
+  '/carreras': typeof CarrerasRouteWithChildren
   '/comunicados': typeof ComunicadosRoute
+  '/contacto': typeof ContactoRoute
+  '/plataformas': typeof PlataformasRoute
+  '/tramites': typeof TramitesRoute
+  '/carreras/$career': typeof CarrerasCareerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/comunicados'
+  fullPaths:
+    | '/'
+    | '/biblioteca'
+    | '/carreras'
+    | '/comunicados'
+    | '/contacto'
+    | '/plataformas'
+    | '/tramites'
+    | '/carreras/$career'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/comunicados'
-  id: '__root__' | '/' | '/comunicados'
+  to:
+    | '/'
+    | '/biblioteca'
+    | '/carreras'
+    | '/comunicados'
+    | '/contacto'
+    | '/plataformas'
+    | '/tramites'
+    | '/carreras/$career'
+  id:
+    | '__root__'
+    | '/'
+    | '/biblioteca'
+    | '/carreras'
+    | '/comunicados'
+    | '/contacto'
+    | '/plataformas'
+    | '/tramites'
+    | '/carreras/$career'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BibliotecaRoute: typeof BibliotecaRoute
+  CarrerasRoute: typeof CarrerasRouteWithChildren
   ComunicadosRoute: typeof ComunicadosRoute
+  ContactoRoute: typeof ContactoRoute
+  PlataformasRoute: typeof PlataformasRoute
+  TramitesRoute: typeof TramitesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tramites': {
+      id: '/tramites'
+      path: '/tramites'
+      fullPath: '/tramites'
+      preLoaderRoute: typeof TramitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plataformas': {
+      id: '/plataformas'
+      path: '/plataformas'
+      fullPath: '/plataformas'
+      preLoaderRoute: typeof PlataformasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/comunicados': {
       id: '/comunicados'
       path: '/comunicados'
       fullPath: '/comunicados'
       preLoaderRoute: typeof ComunicadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carreras': {
+      id: '/carreras'
+      path: '/carreras'
+      fullPath: '/carreras'
+      preLoaderRoute: typeof CarrerasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/biblioteca': {
+      id: '/biblioteca'
+      path: '/biblioteca'
+      fullPath: '/biblioteca'
+      preLoaderRoute: typeof BibliotecaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,12 +184,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carreras/$career': {
+      id: '/carreras/$career'
+      path: '/$career'
+      fullPath: '/carreras/$career'
+      preLoaderRoute: typeof CarrerasCareerRouteImport
+      parentRoute: typeof CarrerasRoute
+    }
   }
 }
 
+interface CarrerasRouteChildren {
+  CarrerasCareerRoute: typeof CarrerasCareerRoute
+}
+
+const CarrerasRouteChildren: CarrerasRouteChildren = {
+  CarrerasCareerRoute: CarrerasCareerRoute,
+}
+
+const CarrerasRouteWithChildren = CarrerasRoute._addFileChildren(
+  CarrerasRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BibliotecaRoute: BibliotecaRoute,
+  CarrerasRoute: CarrerasRouteWithChildren,
   ComunicadosRoute: ComunicadosRoute,
+  ContactoRoute: ContactoRoute,
+  PlataformasRoute: PlataformasRoute,
+  TramitesRoute: TramitesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
