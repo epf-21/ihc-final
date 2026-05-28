@@ -39,11 +39,8 @@ function RouteComponent() {
       <section className="mx-auto max-w-7xl px-6 py-14">
 
         <div className="grid gap-6 md:grid-cols-2">
-          {procedures.map((procedure, index) => (
+          {procedures.map((procedure) => (
             <article key={procedure.title} className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-100">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[3px] text-secondary">
-                Paso {index + 1}
-              </p>
               <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[2px] text-slate-700">
                 {procedure.category}
               </span>

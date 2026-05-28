@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-6 inline-flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm">
               <img
                 src="/fce-logo.png"
                 alt="FCE"
@@ -14,11 +14,9 @@ export function Footer() {
               />
 
               <div>
-                <h3 className="text-lg font-bold text-white">
-                  FCE • UMSS
-                </h3>
+                <h3 className="text-lg font-bold text-slate-900">FCE • UMSS</h3>
 
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-slate-500">
                   Facultad de Ciencias Económicas
                 </p>
               </div>
@@ -84,9 +82,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-6 text-lg font-semibold text-white">
-              Accesos
-            </h4>
+            <h4 className="mb-6 text-lg font-semibold text-white">Accesos</h4>
 
             <ul className="space-y-4">
               <li>
@@ -116,25 +112,18 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-6 text-lg font-semibold text-white">
-              Contacto
-            </h4>
+            <h4 className="mb-6 text-lg font-semibold text-white">Contacto</h4>
 
             <div className="space-y-5 text-slate-400">
-
               <p>
-                Campus Central UMSS<br />
+                Campus Central UMSS
+                <br />
                 Cochabamba, Bolivia
               </p>
 
-              <p>
-                4540261
-              </p>
+              <p>4540261</p>
 
-              <p>
-                info@fce.umss.edu.bo
-              </p>
-
+              <p>info@fce.umss.edu.bo</p>
             </div>
           </div>
         </div>

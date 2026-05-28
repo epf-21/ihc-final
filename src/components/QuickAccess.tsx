@@ -23,6 +23,12 @@ const items = [
     route: 'https://iese.umss.edu.bo/',
     image: '/iese.png',
   },
+  {
+    title: 'Ceplag',
+    description: 'Centro de Planificación y Gestión',
+    route: 'https://ceplag.umss.edu.bo/',
+    image: '/ceplag.png',
+  },
 ]
 
 export function QuickAccess() {
@@ -44,9 +50,7 @@ export function QuickAccess() {
               rel="noopener noreferrer"
               className="group block rounded-3xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-sm"
             >
-              <div
-                className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-50 p-3"
-              >
+              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-50 p-3">
                 <img
                   src={item.image}
                   alt={item.title}

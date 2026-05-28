@@ -6,7 +6,8 @@ import { Footer } from '../components/Footer'
 const platforms = [
   {
     title: 'Moodle',
-    description: 'Entorno virtual para materias, recursos y actividades académicas.',
+    description:
+      'Entorno virtual para materias, recursos y actividades académicas.',
     url: 'https://moodle.fce.umss.edu.bo/login/index.php',
     note: 'Recomendado para clases, material y tareas.',
   },
@@ -24,9 +25,16 @@ const platforms = [
   },
   {
     title: 'IESE',
-    description: 'Información institucional vinculada al instituto y publicaciones.',
+    description:
+      'Información institucional vinculada al instituto y publicaciones.',
     url: 'https://iese.umss.edu.bo/',
     note: 'Publicaciones e información del instituto.',
+  },
+  {
+    title: 'Ceplag',
+    description: 'Plataforma de gestión de proyectos y laboratorios.',
+    url: 'https://ceplag.umss.edu.bo/',
+    note: 'Centro de Planificación y Gestión.',
   },
 ]
 
@@ -40,14 +48,20 @@ function RouteComponent() {
       <Navbar />
 
       <section className="mx-auto max-w-7xl px-6 py-14">
-
         <div className="grid gap-6 sm:grid-cols-2">
           {platforms.map((platform) => (
-            <article key={platform.title} className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-100">
+            <article
+              key={platform.title}
+              className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-100"
+            >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-2xl font-semibold text-slate-900">{platform.title}</h2>
-                  <p className="mt-3 leading-relaxed text-slate-600">{platform.description}</p>
+                  <h2 className="text-2xl font-semibold text-slate-900">
+                    {platform.title}
+                  </h2>
+                  <p className="mt-3 leading-relaxed text-slate-600">
+                    {platform.description}
+                  </p>
                 </div>
                 <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[2px] text-slate-700">
                   Acceso

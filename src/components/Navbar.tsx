@@ -7,11 +7,10 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/70 bg-white/90 shadow-sm backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-
         <Link to="/" className="flex items-center gap-4">
           <img
-            src="/umss.png"
-            alt="UMSS"
+            src="/fce-logo.png"
+            alt="FCE"
             className="h-12 w-12 object-contain"
           />
 
@@ -39,6 +38,9 @@ export function Navbar() {
           <Link to="/tramites" activeProps={{ className: 'text-primary' }}>
             Trámites
           </Link>
+          <Link to="/biblioteca" activeProps={{ className: 'text-primary' }}>
+            Biblioteca
+          </Link>
           <Link to="/plataformas" activeProps={{ className: 'text-primary' }}>
             Plataformas
           </Link>
@@ -62,6 +64,7 @@ export function Navbar() {
             <Link to="/comunicados">Comunicados</Link>
             <Link to="/carreras">Carreras</Link>
             <Link to="/tramites">Trámites</Link>
+            <Link to="/biblioteca">Biblioteca</Link>
             <Link to="/plataformas">Plataformas</Link>
           </nav>
         </div>
