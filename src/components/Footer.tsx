@@ -124,6 +124,13 @@ export function Footer() {
               <p>4540261</p>
 
               <p>info@fce.umss.edu.bo</p>
+
+              <Link
+                to="/contacto"
+                className="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-200"
+              >
+                Ir a contacto
+              </Link>
             </div>
           </div>
         </div>
