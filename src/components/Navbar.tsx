@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
@@ -7,45 +8,136 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/70 bg-white/90 shadow-sm backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-4">
+        <Link to="/" className="flex min-w-0 items-center gap-3">
           <img
             src="/fce-logo.png"
             alt="FCE"
-            className="h-12 w-12 object-contain"
+            className="h-12 w-12 shrink-0 object-contain"
           />
 
-          <div>
+          <div className="min-w-0">
             <h1 className="font-bold text-primary">
-              Facultad de Ciencias Económicas
+              <span className="md:hidden">FCE</span>
+
+              <span className="hidden truncate md:block">
+                Facultad de Ciencias Económicas
+              </span>
             </h1>
 
-            <p className="text-sm text-slate-500">
+            <p className="hidden truncate text-sm text-slate-500 sm:block">
               Universidad Mayor de San Simón
             </p>
           </div>
         </Link>
 
+        {/* Desktop */}
         <nav className="hidden items-center gap-8 font-medium md:flex">
           <Link to="/" activeProps={{ className: 'text-primary' }}>
             Inicio
           </Link>
+
           <Link to="/comunicados" activeProps={{ className: 'text-primary' }}>
             Comunicados
           </Link>
+
           <Link to="/carreras" activeProps={{ className: 'text-primary' }}>
             Carreras
           </Link>
-          <Link to="/tramites" activeProps={{ className: 'text-primary' }}>
-            Trámites
-          </Link>
+
+          {/* Dropdown Oficina Educativa */}
+          <div className="group relative">
+            <Link
+              to="/oficinaEducativa"
+              className="flex items-center gap-1 transition hover:text-primary"
+              activeProps={{ className: 'text-primary' }}
+            >
+              Oficina Educativa
+              <ChevronDown
+                size={16}
+                className="transition group-hover:rotate-180"
+              />
+            </Link>
+
+            <div className="invisible absolute left-1/2 top-full z-50 mt-4 w-72 -translate-x-1/2 rounded-3xl bg-white p-3 opacity-0 shadow-xl ring-1 ring-slate-200 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              <div className="space-y-1">
+                <Link
+                  to="/oficinaEducativa/admisiones"
+                  className="block rounded-2xl px-4 py-3 transition hover:bg-slate-100"
+                >
+                  <p className="font-semibold text-slate-900">Admisiones</p>
+
+                  <p className="text-sm text-slate-500">
+                    Cursos y procesos de ingreso.
+                  </p>
+                </Link>
+
+                <Link
+                  to="/oficinaEducativa/cuadro-honor"
+                  className="block rounded-2xl px-4 py-3 transition hover:bg-slate-100"
+                >
+                  <p className="font-semibold text-slate-900">
+                    Cuadro de Honor
+                  </p>
+
+                  <p className="text-sm text-slate-500">
+                    Reconocimientos académicos.
+                  </p>
+                </Link>
+
+                <Link
+                  to="/oficinaEducativa/auxiliares"
+                  className="block rounded-2xl px-4 py-3 transition hover:bg-slate-100"
+                >
+                  <p className="font-semibold text-slate-900">Auxiliares</p>
+
+                  <p className="text-sm text-slate-500">
+                    Convocatorias y formularios.
+                  </p>
+                </Link>
+
+                <Link
+                  to="/oficinaEducativa/jornadas"
+                  className="block rounded-2xl px-4 py-3 transition hover:bg-slate-100"
+                >
+                  <p className="font-semibold text-slate-900">
+                    Jornadas Científicas
+                  </p>
+
+                  <p className="text-sm text-slate-500">
+                    Difusión e investigación.
+                  </p>
+                </Link>
+
+                <Link
+                  to="/oficinaEducativa/recursos-docentes"
+                  className="block rounded-2xl px-4 py-3 transition hover:bg-slate-100"
+                >
+                  <p className="font-semibold text-slate-900">
+                    Recursos Docentes
+                  </p>
+
+                  <p className="text-sm text-slate-500">
+                    Material y documentos académicos.
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <Link to="/biblioteca" activeProps={{ className: 'text-primary' }}>
             Biblioteca
           </Link>
+
+          <Link to="/tramites" activeProps={{ className: 'text-primary' }}>
+            Trámites
+          </Link>
+
           <Link to="/plataformas" activeProps={{ className: 'text-primary' }}>
             Plataformas
           </Link>
         </nav>
 
+        {/* Botón móvil */}
         <button
           type="button"
           className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 md:hidden"
@@ -57,18 +149,39 @@ export function Navbar() {
         </button>
       </div>
 
-      {open ? (
+      {/* Menú móvil */}
+      {open && (
         <div className="border-t border-slate-200 bg-white px-6 py-4 md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-4 text-sm font-medium">
             <Link to="/">Inicio</Link>
+
             <Link to="/comunicados">Comunicados</Link>
+
             <Link to="/carreras">Carreras</Link>
-            <Link to="/tramites">Trámites</Link>
+
+            <Link to="/oficinaEducativa">Oficina Educativa</Link>
+
+            <div className="ml-4 flex flex-col gap-3 border-l border-slate-200 pl-4 text-slate-600">
+              <Link to="/oficinaEducativa/admisiones">Admisiones</Link>
+
+              <Link to="/oficinaEducativa/cuadro-honor">Cuadro de Honor</Link>
+
+              <Link to="/oficinaEducativa/auxiliares">Auxiliares</Link>
+
+              <Link to="/oficinaEducativa/jornadas">Jornadas Científicas</Link>
+
+              <Link to="/oficinaEducativa/recursos-docentes">
+                Recursos Docentes
+              </Link>
+            </div>
             <Link to="/biblioteca">Biblioteca</Link>
+
+            <Link to="/tramites">Trámites</Link>
+
             <Link to="/plataformas">Plataformas</Link>
           </nav>
         </div>
-      ) : null}
+      )}
     </header>
   )
 }
