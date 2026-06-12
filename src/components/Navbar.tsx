@@ -6,6 +6,8 @@ import { Moon, Sun, ChevronDown } from 'lucide-react'
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const { dark, toggle } = useThemeStore()
+  const activeClass =
+    'text-primary font-extrabold'
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/70 bg-white/90 shadow-sm backdrop-blur-xl">
@@ -34,15 +36,15 @@ export function Navbar() {
 
         {/* Desktop */}
         <nav className="hidden items-center gap-8 font-medium md:flex">
-          <Link to="/" activeProps={{ className: 'text-primary' }}>
+          <Link to="/" activeProps={{ className: activeClass }}>
             Inicio
           </Link>
 
-          <Link to="/comunicados" activeProps={{ className: 'text-primary' }}>
+          <Link to="/comunicados" activeProps={{ className: activeClass }}>
             Comunicados
           </Link>
 
-          <Link to="/carreras" activeProps={{ className: 'text-primary' }}>
+          <Link to="/carreras" activeProps={{ className: activeClass }}>
             Carreras
           </Link>
 
@@ -51,7 +53,7 @@ export function Navbar() {
             <Link
               to="/oficinaEducativa"
               className="flex items-center gap-1 transition hover:text-primary"
-              activeProps={{ className: 'text-primary' }}
+              activeProps={{ className: activeClass }}
             >
               Oficina Educativa
               <ChevronDown
@@ -76,6 +78,7 @@ export function Navbar() {
                 <Link
                   to="/oficinaEducativa/cuadro-honor"
                   className="block rounded-2xl px-4 py-3 transition hover:bg-slate-100"
+                  activeProps={{ className: activeClass }}
                 >
                   <p className="font-semibold text-slate-900">
                     Cuadro de Honor
@@ -126,15 +129,15 @@ export function Navbar() {
             </div>
           </div>
 
-          <Link to="/biblioteca" activeProps={{ className: 'text-primary' }}>
+          <Link to="/biblioteca" activeProps={{ className: activeClass }}>
             Biblioteca
           </Link>
 
-          <Link to="/tramites" activeProps={{ className: 'text-primary' }}>
+          <Link to="/tramites" activeProps={{ className: activeClass }}>
             Trámites
           </Link>
 
-          <Link to="/plataformas" activeProps={{ className: 'text-primary' }}>
+          <Link to="/plataformas" activeProps={{ className: activeClass }}>
             Plataformas
           </Link>
 
@@ -161,32 +164,32 @@ export function Navbar() {
       {open && (
         <div className="border-t border-slate-200 bg-white px-6 py-4 md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-4 text-sm font-medium">
-            <Link to="/">Inicio</Link>
+            <Link to="/" activeProps={{ className: activeClass }}>Inicio</Link>
 
-            <Link to="/comunicados">Comunicados</Link>
+            <Link to="/comunicados" activeProps={{ className: activeClass }}>Comunicados</Link>
 
-            <Link to="/carreras">Carreras</Link>
+            <Link to="/carreras" activeProps={{ className: activeClass }}>Carreras</Link>
 
-            <Link to="/oficinaEducativa">Oficina Educativa</Link>
+            <Link to="/oficinaEducativa" activeProps={{ className: activeClass }}>Oficina Educativa</Link>
 
             <div className="ml-4 flex flex-col gap-3 border-l border-slate-200 pl-4 text-slate-600">
-              <Link to="/oficinaEducativa/admisiones">Admisiones</Link>
+              <Link to="/oficinaEducativa/admisiones" activeProps={{ className: activeClass }}>Admisiones</Link>
 
-              <Link to="/oficinaEducativa/cuadro-honor">Cuadro de Honor</Link>
+              <Link to="/oficinaEducativa/cuadro-honor" activeProps={{ className: activeClass }}>Cuadro de Honor</Link>
 
-              <Link to="/oficinaEducativa/auxiliares">Auxiliares</Link>
+              <Link to="/oficinaEducativa/auxiliares" activeProps={{ className: activeClass }}>Auxiliares</Link>
 
-              <Link to="/oficinaEducativa/jornadas">Jornadas Científicas</Link>
+              <Link to="/oficinaEducativa/jornadas" activeProps={{ className: activeClass }}>Jornadas Científicas</Link>
 
-              <Link to="/oficinaEducativa/recursos-docentes">
+              <Link to="/oficinaEducativa/recursos-docentes" activeProps={{ className: activeClass }}>
                 Recursos Docentes
               </Link>
             </div>
-            <Link to="/biblioteca">Biblioteca</Link>
+            <Link to="/biblioteca" activeProps={{ className: activeClass }}>Biblioteca</Link>
 
-            <Link to="/tramites">Trámites</Link>
+            <Link to="/tramites" activeProps={{ className: activeClass }}>Trámites</Link>
 
-            <Link to="/plataformas">Plataformas</Link>
+            <Link to="/plataformas" activeProps={{ className: activeClass }}>Plataformas</Link>
 
 {/*
             <button onClick={toggle} className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
