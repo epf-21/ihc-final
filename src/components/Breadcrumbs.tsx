@@ -21,13 +21,13 @@ export function Breadcrumbs() {
                   {label}
                 </span>
               ) : (
-                  <Link
-                    to={match.pathname}
-                    className="hover:text-primary"
-                  >
-                    {label}
-                  </Link>
-                )}
+                <Link
+                  to={match.pathname}
+                  className="hover:text-primary"
+                >
+                  {label}
+                </Link>
+              )}
 
               {!last && <span>/</span>}
             </div>

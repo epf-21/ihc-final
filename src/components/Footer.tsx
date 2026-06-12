@@ -3,25 +3,9 @@ import { Link } from '@tanstack/react-router'
 export function Footer() {
   return (
     <footer className="mt-24 bg-slate-950 text-slate-300">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-6 inline-flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm">
-              <img
-                src="/fce-logo.png"
-                alt="FCE"
-                className="h-14 w-14 object-contain"
-              />
-
-              <div>
-                <h3 className="text-lg font-bold text-slate-900">FCE • UMSS</h3>
-
-                <p className="text-sm text-slate-500">
-                  Facultad de Ciencias Económicas
-                </p>
-              </div>
-            </div>
-
             <p className="leading-relaxed text-slate-400">
               Plataforma académica orientada a mejorar el acceso a información
               institucional, trámites y recursos universitarios para estudiantes
@@ -127,20 +111,12 @@ export function Footer() {
 
               <Link
                 to="/contacto"
-                className="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-200"
+                className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-slate-400 transition hover:text-white"
               >
                 Ir a contacto
               </Link>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row">
-          <p className="text-sm text-slate-500">
-            © 2026 Facultad de Ciencias Económicas - UMSS
-          </p>
         </div>
       </div>
     </footer>

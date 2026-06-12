@@ -30,7 +30,7 @@ function RouteComponent() {
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
           <div>
-            <h1 className="text-4xl font-bold text-slate-900 md:text-5xl">Canales claros para resolver dudas y trámites</h1>
+            <h1 className="text-4xl font-bold text-slate-900 md:text-5xl">Canales para resolver dudas y trámites</h1>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {contactCards.map((card) => (
