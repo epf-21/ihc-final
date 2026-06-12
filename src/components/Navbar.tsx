@@ -138,9 +138,11 @@ export function Navbar() {
             Plataformas
           </Link>
 
+{/*
           <button onClick={toggle} className="rounded-xl p-2 hover:bg-slate-900 hover:text-white cursor-pointer">
             {dark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
+*/}
         </nav>
 
         {/* Botón móvil */}
@@ -186,10 +188,12 @@ export function Navbar() {
 
             <Link to="/plataformas">Plataformas</Link>
 
+{/*
             <button onClick={toggle} className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
               {dark ? <Sun size={16} /> : <Moon size={16} />}
               {dark ? 'Modo claro' : 'Modo oscuro'}
             </button>
+*/}
           </nav>
         </div>
       )}
