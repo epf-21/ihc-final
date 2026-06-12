@@ -1,9 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Download, FileText } from 'lucide-react'
 
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-
 const resources = [
   {
     title: 'Formato Curriculum Vitae y Tablas de Calificación de Méritos',
@@ -31,9 +28,7 @@ export const Route = createFileRoute('/oficinaEducativa/auxiliares')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-slate-900">
@@ -76,8 +71,6 @@ function RouteComponent() {
           ))}
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

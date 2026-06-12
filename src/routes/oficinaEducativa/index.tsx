@@ -4,10 +4,8 @@ import {
   BookOpen,
   GraduationCap,
   Microscope,
-  Send,
   Users,
 } from 'lucide-react'
-
 import {
   FaFacebookF,
   FaYoutube,
@@ -15,18 +13,13 @@ import {
   FaTelegramPlane,
 } from 'react-icons/fa'
 
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-
 export const Route = createFileRoute('/oficinaEducativa/')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pt-14">
         <div className="max-w-3xl">
@@ -269,8 +262,6 @@ function RouteComponent() {
           </Link>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

@@ -1,7 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createFileRoute } from '@tanstack/react-router'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
 
 export const Route = createFileRoute('/contacto')({
   component: RouteComponent,
@@ -27,9 +25,7 @@ const contactCards = [
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
           <div>
@@ -84,8 +80,6 @@ function RouteComponent() {
           </article>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

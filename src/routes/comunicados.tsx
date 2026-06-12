@@ -3,9 +3,6 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useMemo, useState } from 'react'
 import { Search } from 'lucide-react'
 
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
-
 const news = [
   {
     title: 'Comunicado 18/2026',
@@ -75,9 +72,7 @@ function RouteComponent() {
   }, [selectedCategory, search])
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         {/* Header */}
         <div className="mb-10">
@@ -172,8 +167,6 @@ function RouteComponent() {
           </div>
         )}
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

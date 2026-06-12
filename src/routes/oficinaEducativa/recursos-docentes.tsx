@@ -1,9 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Download, FileText } from 'lucide-react'
 
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-
 const resources = [
   {
     title:
@@ -46,9 +43,7 @@ export const Route = createFileRoute('/oficinaEducativa/recursos-docentes')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         {/* Header */}
         <div className="max-w-3xl">
@@ -96,8 +91,6 @@ function RouteComponent() {
           ))}
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

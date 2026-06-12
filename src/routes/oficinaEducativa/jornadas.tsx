@@ -7,9 +7,6 @@ import {
   Microscope,
 } from 'lucide-react'
 
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-
 const conferences = [
   {
     title: 'IV Jornada de Difusión Científica',
@@ -43,9 +40,7 @@ export const Route = createFileRoute('/oficinaEducativa/jornadas')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         {/* Header */}
         <div className="max-w-3xl">
@@ -171,8 +166,6 @@ function RouteComponent() {
           </a>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

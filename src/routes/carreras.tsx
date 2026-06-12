@@ -1,7 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Link, Outlet, createFileRoute, useLocation } from '@tanstack/react-router'
-import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
 import { careers } from '../data/careers'
 
 export const Route = createFileRoute('/carreras')({
@@ -16,9 +14,7 @@ function CarrerasHub() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -46,8 +42,6 @@ function CarrerasHub() {
           ))}
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

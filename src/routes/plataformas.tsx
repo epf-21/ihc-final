@@ -1,7 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createFileRoute } from '@tanstack/react-router'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
 
 const platforms = [
   {
@@ -44,9 +42,7 @@ export const Route = createFileRoute('/plataformas')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-6 sm:grid-cols-2">
           {platforms.map((platform) => (
@@ -84,8 +80,6 @@ function RouteComponent() {
           ))}
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

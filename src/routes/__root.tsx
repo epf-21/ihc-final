@@ -1,7 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { useThemeStore } from '../stores/themeStore'
 import { useEffect } from 'react'
+import { useThemeStore } from '../stores/themeStore'
+import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
 
 const RootLayout = () => {
   const dark = useThemeStore((s) => s.dark)
@@ -11,9 +13,11 @@ const RootLayout = () => {
   }, [dark])
 
   return (
-    <>
+    <main className="min-h-screen bg-background">
+      <Navbar />
       <Outlet />
-    </>
+      <Footer />
+    </main>
   )
 }
 

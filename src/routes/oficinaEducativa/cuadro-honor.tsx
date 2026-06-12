@@ -1,8 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Award, Download, FileText } from 'lucide-react'
 
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
 import { ImageCard } from '../../components/ImageCard'
 
 export const Route = createFileRoute('/oficinaEducativa/cuadro-honor')({
@@ -11,9 +9,7 @@ export const Route = createFileRoute('/oficinaEducativa/cuadro-honor')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         {/* Header */}
         <div className="max-w-4xl">
@@ -157,8 +153,6 @@ function RouteComponent() {
           </div>
         </section>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

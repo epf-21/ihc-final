@@ -1,7 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Link, createFileRoute, notFound } from '@tanstack/react-router'
-import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
 import { careerSectionLinks, getCareerBySlug } from '../data/careers'
 
 export const Route = createFileRoute('/carreras/$career')({
@@ -17,9 +15,7 @@ function CareerRoute() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="mb-10 max-w-4xl">
           <h1 className="text-4xl font-bold text-slate-900 md:text-5xl">{career.title}</h1>
@@ -133,8 +129,6 @@ function CareerRoute() {
           </Link>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

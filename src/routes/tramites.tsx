@@ -1,7 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
 
 const procedures = [
   {
@@ -33,9 +31,7 @@ export const Route = createFileRoute('/tramites')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -62,8 +58,6 @@ function RouteComponent() {
           </Link>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }

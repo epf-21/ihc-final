@@ -2,9 +2,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ExternalLink, Globe, Search } from 'lucide-react'
 
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
-
 const externalLibraries = [
   {
     title: 'Biblioteca Digital OEI',
@@ -41,9 +38,7 @@ export const Route = createFileRoute('/biblioteca')({
 
 function RouteComponent() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <Navbar />
-
+    <>
       <section className="mx-auto max-w-7xl px-6 py-14">
         {/* Header */}
         <div className="max-w-3xl">
@@ -128,8 +123,6 @@ function RouteComponent() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }
