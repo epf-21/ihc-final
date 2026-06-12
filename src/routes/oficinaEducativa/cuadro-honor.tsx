@@ -5,6 +5,7 @@ import { ImageCard } from '../../components/ImageCard'
 
 export const Route = createFileRoute('/oficinaEducativa/cuadro-honor')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Cuadro de Honor' })
 })
 
 function RouteComponent() {

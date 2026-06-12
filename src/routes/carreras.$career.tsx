@@ -4,6 +4,18 @@ import { careerSectionLinks, getCareerBySlug } from '../data/careers'
 
 export const Route = createFileRoute('/carreras/$career')({
   component: CareerRoute,
+  loader: ({ params }) => {
+    const career = getCareerBySlug(params.career)
+
+    if (!career) {
+      throw notFound()
+    }
+
+    return {
+      crumb: career.title,
+      career,
+    }
+  },
 })
 
 function CareerRoute() {

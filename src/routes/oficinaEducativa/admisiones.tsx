@@ -3,6 +3,7 @@ import { Download, FileText } from 'lucide-react'
 
 export const Route = createFileRoute('/oficinaEducativa/admisiones')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Admisiones' })
 })
 
 function RouteComponent() {

@@ -24,6 +24,7 @@ const resources = [
 
 export const Route = createFileRoute('/oficinaEducativa/auxiliares')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Auxiliares' })
 })
 
 function RouteComponent() {

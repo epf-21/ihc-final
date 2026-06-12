@@ -52,6 +52,7 @@ const categories = [
 
 export const Route = createFileRoute('/comunicados')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Comunicados Oficiales' })
 })
 
 function RouteComponent() {

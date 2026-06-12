@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TramitesRouteImport } from './routes/tramites'
 import { Route as PlataformasRouteImport } from './routes/plataformas'
+import { Route as OficinaEducativaRouteImport } from './routes/oficinaEducativa'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ComunicadosRouteImport } from './routes/comunicados'
 import { Route as CarrerasRouteImport } from './routes/carreras'
@@ -32,6 +33,11 @@ const TramitesRoute = TramitesRouteImport.update({
 const PlataformasRoute = PlataformasRouteImport.update({
   id: '/plataformas',
   path: '/plataformas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OficinaEducativaRoute = OficinaEducativaRouteImport.update({
+  id: '/oficinaEducativa',
+  path: '/oficinaEducativa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -60,39 +66,39 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const OficinaEducativaIndexRoute = OficinaEducativaIndexRouteImport.update({
-  id: '/oficinaEducativa/',
-  path: '/oficinaEducativa/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => OficinaEducativaRoute,
 } as any)
 const OficinaEducativaRecursosDocentesRoute =
   OficinaEducativaRecursosDocentesRouteImport.update({
-    id: '/oficinaEducativa/recursos-docentes',
-    path: '/oficinaEducativa/recursos-docentes',
-    getParentRoute: () => rootRouteImport,
+    id: '/recursos-docentes',
+    path: '/recursos-docentes',
+    getParentRoute: () => OficinaEducativaRoute,
   } as any)
 const OficinaEducativaJornadasRoute =
   OficinaEducativaJornadasRouteImport.update({
-    id: '/oficinaEducativa/jornadas',
-    path: '/oficinaEducativa/jornadas',
-    getParentRoute: () => rootRouteImport,
+    id: '/jornadas',
+    path: '/jornadas',
+    getParentRoute: () => OficinaEducativaRoute,
   } as any)
 const OficinaEducativaCuadroHonorRoute =
   OficinaEducativaCuadroHonorRouteImport.update({
-    id: '/oficinaEducativa/cuadro-honor',
-    path: '/oficinaEducativa/cuadro-honor',
-    getParentRoute: () => rootRouteImport,
+    id: '/cuadro-honor',
+    path: '/cuadro-honor',
+    getParentRoute: () => OficinaEducativaRoute,
   } as any)
 const OficinaEducativaAuxiliaresRoute =
   OficinaEducativaAuxiliaresRouteImport.update({
-    id: '/oficinaEducativa/auxiliares',
-    path: '/oficinaEducativa/auxiliares',
-    getParentRoute: () => rootRouteImport,
+    id: '/auxiliares',
+    path: '/auxiliares',
+    getParentRoute: () => OficinaEducativaRoute,
   } as any)
 const OficinaEducativaAdmisionesRoute =
   OficinaEducativaAdmisionesRouteImport.update({
-    id: '/oficinaEducativa/admisiones',
-    path: '/oficinaEducativa/admisiones',
-    getParentRoute: () => rootRouteImport,
+    id: '/admisiones',
+    path: '/admisiones',
+    getParentRoute: () => OficinaEducativaRoute,
   } as any)
 const CarrerasCareerRoute = CarrerasCareerRouteImport.update({
   id: '/$career',
@@ -106,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/carreras': typeof CarrerasRouteWithChildren
   '/comunicados': typeof ComunicadosRoute
   '/contacto': typeof ContactoRoute
+  '/oficinaEducativa': typeof OficinaEducativaRouteWithChildren
   '/plataformas': typeof PlataformasRoute
   '/tramites': typeof TramitesRoute
   '/carreras/$career': typeof CarrerasCareerRoute
@@ -139,6 +146,7 @@ export interface FileRoutesById {
   '/carreras': typeof CarrerasRouteWithChildren
   '/comunicados': typeof ComunicadosRoute
   '/contacto': typeof ContactoRoute
+  '/oficinaEducativa': typeof OficinaEducativaRouteWithChildren
   '/plataformas': typeof PlataformasRoute
   '/tramites': typeof TramitesRoute
   '/carreras/$career': typeof CarrerasCareerRoute
@@ -157,6 +165,7 @@ export interface FileRouteTypes {
     | '/carreras'
     | '/comunicados'
     | '/contacto'
+    | '/oficinaEducativa'
     | '/plataformas'
     | '/tramites'
     | '/carreras/$career'
@@ -189,6 +198,7 @@ export interface FileRouteTypes {
     | '/carreras'
     | '/comunicados'
     | '/contacto'
+    | '/oficinaEducativa'
     | '/plataformas'
     | '/tramites'
     | '/carreras/$career'
@@ -206,14 +216,9 @@ export interface RootRouteChildren {
   CarrerasRoute: typeof CarrerasRouteWithChildren
   ComunicadosRoute: typeof ComunicadosRoute
   ContactoRoute: typeof ContactoRoute
+  OficinaEducativaRoute: typeof OficinaEducativaRouteWithChildren
   PlataformasRoute: typeof PlataformasRoute
   TramitesRoute: typeof TramitesRoute
-  OficinaEducativaAdmisionesRoute: typeof OficinaEducativaAdmisionesRoute
-  OficinaEducativaAuxiliaresRoute: typeof OficinaEducativaAuxiliaresRoute
-  OficinaEducativaCuadroHonorRoute: typeof OficinaEducativaCuadroHonorRoute
-  OficinaEducativaJornadasRoute: typeof OficinaEducativaJornadasRoute
-  OficinaEducativaRecursosDocentesRoute: typeof OficinaEducativaRecursosDocentesRoute
-  OficinaEducativaIndexRoute: typeof OficinaEducativaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -230,6 +235,13 @@ declare module '@tanstack/react-router' {
       path: '/plataformas'
       fullPath: '/plataformas'
       preLoaderRoute: typeof PlataformasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oficinaEducativa': {
+      id: '/oficinaEducativa'
+      path: '/oficinaEducativa'
+      fullPath: '/oficinaEducativa'
+      preLoaderRoute: typeof OficinaEducativaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -269,45 +281,45 @@ declare module '@tanstack/react-router' {
     }
     '/oficinaEducativa/': {
       id: '/oficinaEducativa/'
-      path: '/oficinaEducativa'
+      path: '/'
       fullPath: '/oficinaEducativa/'
       preLoaderRoute: typeof OficinaEducativaIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OficinaEducativaRoute
     }
     '/oficinaEducativa/recursos-docentes': {
       id: '/oficinaEducativa/recursos-docentes'
-      path: '/oficinaEducativa/recursos-docentes'
+      path: '/recursos-docentes'
       fullPath: '/oficinaEducativa/recursos-docentes'
       preLoaderRoute: typeof OficinaEducativaRecursosDocentesRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OficinaEducativaRoute
     }
     '/oficinaEducativa/jornadas': {
       id: '/oficinaEducativa/jornadas'
-      path: '/oficinaEducativa/jornadas'
+      path: '/jornadas'
       fullPath: '/oficinaEducativa/jornadas'
       preLoaderRoute: typeof OficinaEducativaJornadasRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OficinaEducativaRoute
     }
     '/oficinaEducativa/cuadro-honor': {
       id: '/oficinaEducativa/cuadro-honor'
-      path: '/oficinaEducativa/cuadro-honor'
+      path: '/cuadro-honor'
       fullPath: '/oficinaEducativa/cuadro-honor'
       preLoaderRoute: typeof OficinaEducativaCuadroHonorRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OficinaEducativaRoute
     }
     '/oficinaEducativa/auxiliares': {
       id: '/oficinaEducativa/auxiliares'
-      path: '/oficinaEducativa/auxiliares'
+      path: '/auxiliares'
       fullPath: '/oficinaEducativa/auxiliares'
       preLoaderRoute: typeof OficinaEducativaAuxiliaresRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OficinaEducativaRoute
     }
     '/oficinaEducativa/admisiones': {
       id: '/oficinaEducativa/admisiones'
-      path: '/oficinaEducativa/admisiones'
+      path: '/admisiones'
       fullPath: '/oficinaEducativa/admisiones'
       preLoaderRoute: typeof OficinaEducativaAdmisionesRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OficinaEducativaRoute
     }
     '/carreras/$career': {
       id: '/carreras/$career'
@@ -331,20 +343,36 @@ const CarrerasRouteWithChildren = CarrerasRoute._addFileChildren(
   CarrerasRouteChildren,
 )
 
-const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  BibliotecaRoute: BibliotecaRoute,
-  CarrerasRoute: CarrerasRouteWithChildren,
-  ComunicadosRoute: ComunicadosRoute,
-  ContactoRoute: ContactoRoute,
-  PlataformasRoute: PlataformasRoute,
-  TramitesRoute: TramitesRoute,
+interface OficinaEducativaRouteChildren {
+  OficinaEducativaAdmisionesRoute: typeof OficinaEducativaAdmisionesRoute
+  OficinaEducativaAuxiliaresRoute: typeof OficinaEducativaAuxiliaresRoute
+  OficinaEducativaCuadroHonorRoute: typeof OficinaEducativaCuadroHonorRoute
+  OficinaEducativaJornadasRoute: typeof OficinaEducativaJornadasRoute
+  OficinaEducativaRecursosDocentesRoute: typeof OficinaEducativaRecursosDocentesRoute
+  OficinaEducativaIndexRoute: typeof OficinaEducativaIndexRoute
+}
+
+const OficinaEducativaRouteChildren: OficinaEducativaRouteChildren = {
   OficinaEducativaAdmisionesRoute: OficinaEducativaAdmisionesRoute,
   OficinaEducativaAuxiliaresRoute: OficinaEducativaAuxiliaresRoute,
   OficinaEducativaCuadroHonorRoute: OficinaEducativaCuadroHonorRoute,
   OficinaEducativaJornadasRoute: OficinaEducativaJornadasRoute,
   OficinaEducativaRecursosDocentesRoute: OficinaEducativaRecursosDocentesRoute,
   OficinaEducativaIndexRoute: OficinaEducativaIndexRoute,
+}
+
+const OficinaEducativaRouteWithChildren =
+  OficinaEducativaRoute._addFileChildren(OficinaEducativaRouteChildren)
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  BibliotecaRoute: BibliotecaRoute,
+  CarrerasRoute: CarrerasRouteWithChildren,
+  ComunicadosRoute: ComunicadosRoute,
+  ContactoRoute: ContactoRoute,
+  OficinaEducativaRoute: OficinaEducativaRouteWithChildren,
+  PlataformasRoute: PlataformasRoute,
+  TramitesRoute: TramitesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

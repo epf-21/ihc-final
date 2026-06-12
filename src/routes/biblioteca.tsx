@@ -34,6 +34,7 @@ const externalLibraries = [
 
 export const Route = createFileRoute('/biblioteca')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Biblioteca y Recursos Académicos' })
 })
 
 function RouteComponent() {

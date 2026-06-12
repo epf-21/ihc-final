@@ -27,6 +27,7 @@ const procedures = [
 
 export const Route = createFileRoute('/tramites')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Trámites' })
 })
 
 function RouteComponent() {

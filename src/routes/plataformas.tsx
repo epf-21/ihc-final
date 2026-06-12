@@ -38,6 +38,7 @@ const platforms = [
 
 export const Route = createFileRoute('/plataformas')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Plataformas' })
 })
 
 function RouteComponent() {

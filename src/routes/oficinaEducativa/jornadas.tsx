@@ -36,6 +36,7 @@ const conferences = [
 
 export const Route = createFileRoute('/oficinaEducativa/jornadas')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Jornadads de Difusión CientIfica' })
 })
 
 function RouteComponent() {

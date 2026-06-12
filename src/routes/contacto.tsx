@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/contacto')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Contacto' })
 })
 
 const contactCards = [

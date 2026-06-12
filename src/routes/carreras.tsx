@@ -4,6 +4,7 @@ import { careers } from '../data/careers'
 
 export const Route = createFileRoute('/carreras')({
   component: CarrerasHub,
+  loader: () => ({ crumb: 'Carreras' })
 })
 
 function CarrerasHub() {

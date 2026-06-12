@@ -39,6 +39,7 @@ const resources = [
 
 export const Route = createFileRoute('/oficinaEducativa/recursos-docentes')({
   component: RouteComponent,
+  loader: () => ({ crumb: 'Recursos Docentes' })
 })
 
 function RouteComponent() {

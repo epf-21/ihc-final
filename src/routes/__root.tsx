@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useThemeStore } from '../stores/themeStore'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
+import { Breadcrumbs } from '../components/Breadcrumbs'
 
 const RootLayout = () => {
   const dark = useThemeStore((s) => s.dark)
@@ -15,6 +16,7 @@ const RootLayout = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
+      <Breadcrumbs />
       <Outlet />
       <Footer />
     </main>
