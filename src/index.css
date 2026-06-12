@@ -22,4 +22,20 @@
   a {
     text-decoration: none;
   }
+
+  .dark body {
+    --color-background: #0f172a;
+    --color-text: #f1f5f9;
+    --color-primary: #1D70B8;
+    --color-secondary: #60a5fa;
+  }
+
+  .dark header {
+    background: rgb(15 23 42 / 0.9);
+    border-color: rgb(255 255 255 / 0.1);
+  }
+
+  .dark .bg-white {
+    background: #1e293b;
+  }
 }

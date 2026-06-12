@@ -1,9 +1,11 @@
 import { Link } from '@tanstack/react-router'
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { useThemeStore } from '../stores/themeStore'
+import { Moon, Sun, ChevronDown } from 'lucide-react'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const { dark, toggle } = useThemeStore()
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/70 bg-white/90 shadow-sm backdrop-blur-xl">
@@ -135,6 +137,10 @@ export function Navbar() {
           <Link to="/plataformas" activeProps={{ className: 'text-primary' }}>
             Plataformas
           </Link>
+
+          <button onClick={toggle} className="rounded-xl p-2 hover:bg-slate-900 hover:text-white cursor-pointer">
+            {dark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </nav>
 
         {/* Botón móvil */}
@@ -179,6 +185,11 @@ export function Navbar() {
             <Link to="/tramites">Trámites</Link>
 
             <Link to="/plataformas">Plataformas</Link>
+
+            <button onClick={toggle} className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+              {dark ? <Sun size={16} /> : <Moon size={16} />}
+              {dark ? 'Modo claro' : 'Modo oscuro'}
+            </button>
           </nav>
         </div>
       )}
