@@ -41,6 +41,13 @@ const news = [
     description:
       'Disponibles los programas analíticos de materias de Economía, Estadística, Auditoría, Contabilidad y Administración.',
   },
+  {
+    title: 'Traspaso de carrera',
+    category: 'Trámites',
+    date: '20 mayo 2026',
+    description:
+      'Tramite para traspaso de carrera.',
+  },
 ]
 
 const categories = [
