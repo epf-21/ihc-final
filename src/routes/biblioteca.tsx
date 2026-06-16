@@ -58,10 +58,6 @@ function RouteComponent() {
         <div className="mt-10 rounded-3xl bg-slate-900 p-8 text-white shadow-xl">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[3px] text-blue-300">
-                Buscador principal
-              </p>
-
               <h2 className="mt-3 text-3xl font-bold">
                 Biblioteca Central FCE
               </h2>
@@ -87,7 +83,7 @@ function RouteComponent() {
         {/* Bibliotecas internacionales */}
         <div className="mt-16">
           <div className="mb-6 flex items-center gap-3">
-            <Globe className="text-blue-700" size={26} />
+            <Globe className="text-slate900" size={26} />
 
             <h2 className="text-2xl font-bold text-slate-900">
               Bibliotecas y buscadores internacionales

@@ -2,6 +2,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useMemo, useState } from 'react'
 import { Search } from 'lucide-react'
+import { ImageModal } from '../components/ModalComunicado'
 
 const news = [
   {
@@ -58,6 +59,7 @@ export const Route = createFileRoute('/comunicados')({
 function RouteComponent() {
   const [selectedCategory, setSelectedCategory] = useState('Todos')
   const [search, setSearch] = useState('')
+  const [previewOpen, setPreviewOpen] = useState(false)
 
   const filteredNews = useMemo(() => {
     return news.filter((item) => {
@@ -148,14 +150,15 @@ function RouteComponent() {
                 {item.description}
               </p>
 
-              <button className="mt-6 inline-flex items-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">
+              <button
+                onClick={() => setPreviewOpen(true)}
+                className="mt-6 inline-flex items-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">
                 Ver comunicado
               </button>
             </article>
           ))}
         </div>
 
-        {/* Estado vacío */}
         {filteredNews.length === 0 && (
           <div className="rounded-3xl border border-dashed border-slate-300 bg-white py-20 text-center">
             <p className="text-lg font-medium text-slate-700">
@@ -168,6 +171,13 @@ function RouteComponent() {
           </div>
         )}
       </section>
+      {previewOpen && (
+        <ImageModal
+          src="/doc1.png"
+          title="Comunicado"
+          onClose={() => setPreviewOpen(false)}
+        />
+      )}
     </>
   )
 }

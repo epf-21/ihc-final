@@ -13,11 +13,13 @@ const RootLayout = () => {
   }, [dark])
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
-      <Outlet />
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }
 
